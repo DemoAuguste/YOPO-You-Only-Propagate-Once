@@ -7,6 +7,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+import torchvision.models as models
+
 
 
 class PreActBlock(nn.Module):
@@ -129,7 +131,8 @@ class PreActBottleneck(nn.Module):
         return out
 
 def create_network():
-    return PreActResNet18()
+    # return PreActResNet18(
+    return models.resnet18(num_classes=10)
 
 
 def test():
