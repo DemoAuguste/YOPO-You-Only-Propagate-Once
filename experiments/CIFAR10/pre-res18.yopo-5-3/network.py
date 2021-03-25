@@ -131,8 +131,8 @@ class PreActBottleneck(nn.Module):
         return out
 
 def create_network():
-    # return PreActResNet18(
-    return models.resnet18(num_classes=10)
+    return PreActResNet18()
+    # return models.resnet18(num_classes=10)
 
 
 def test():
