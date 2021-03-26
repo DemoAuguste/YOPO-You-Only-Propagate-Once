@@ -40,6 +40,12 @@ optimizer = torch.optim.SGD(net.parameters(), lr=0.001, momentum=0.9, weight_dec
 if os.path.isfile(args.resume):
     load_checkpoint(args.resume, net)
 
+print('Evaluating -- Before fxing:')
+clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
+print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
+
+print('--- The Pinecone Fixing Process ---')
+
 for _ in range(5):
     total_counts = investigate_dataset(net, ds_train, DEVICE=DEVICE, eps=[0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3], descrip_str='Investigating')
 
@@ -48,12 +54,6 @@ for _ in range(5):
     _, sort_idx = total_counts.sort()
     sensitive_idx = sort_idx[:int(args.ratio*total_num)]
 
-    print('Evaluating -- Before fxing:')
-    clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
-    print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
-
-    print('--- The Pinecone Fixing Process ---')
-    
     # evaluate sensitive layers.
     train_sensitive_data(net, ds_train, optimizer, sensitive_idx, DEVICE=DEVICE, AttackMethod=TrainAttack, descrip_str='Layer Investigating')
     print('Evaluating -- After training sensitive data:')
