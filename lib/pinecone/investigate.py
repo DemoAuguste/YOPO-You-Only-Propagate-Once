@@ -32,7 +32,7 @@ def investigate_dataset(net, data_loader, DEVICE=torch.device('cuda:0'), eps=[0.
             preds = adv_output.max(1, keepdim=True)[1]
             # print(label.size(), preds.size())
             label = label.reshape(-1,1)
-            counts += preds.eq(label)
+            counts += preds.eq(label).cpu()
         
         if total_counts is None:
             total_counts = counts
