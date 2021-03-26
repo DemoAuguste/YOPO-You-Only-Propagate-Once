@@ -2,10 +2,11 @@ from config import config
 from dataset import create_test_dataset, create_train_dataset
 from network import create_network
 
-from training.train import eval_one_epoch
-from pinecone import investigate_dataset, eval_sensitive_layers
+from training.train import eval_one_epoch, train_one_epoch
+from pinecone import investigate_dataset, train_sensitive_data
 from utils.misc import load_checkpoint
 
+import torch.nn as nn
 import argparse
 import torch
 import numpy as np
@@ -48,14 +49,25 @@ _, sort_idx = total_counts.sort()
 sensitive_idx = sort_idx[:int(args.ratio*total_num)]
 
 
-# print('Evaluating -- Before fxing:')
-# clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
-# print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
+print('Evaluating -- Before fxing:')
+clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
+print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
 
 
 print('--- The Pinecone Fixing Process ---')
+optimizer = torch.optim.SGD(net.parameters(), lr=0.001, momentum=0.9, weight_decay=5e-4)
 # evaluate sensitive layers.
-eval_sensitive_layers(net, ds_train, sensitive_idx, DEVICE=DEVICE)
+train_sensitive_data(net, ds_train, optimizer, sensitive_idx, DEVICE=torch.device('cuda:0'), AttackMethod=None, descrip_str='Layer Investigating')
+# adversarial training.
+train_one_epoch(net, ds_train, optimizer, nn.CrossEntropyLoss(), DEVICE,
+                    'adversarial training', TrainAttack, adv_coef = 1.0)
+
+
+print('Evaluating -- After fxing:')
+clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
+print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
+
+
 
 
 
