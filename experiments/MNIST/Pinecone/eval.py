@@ -35,42 +35,39 @@ total_num = len(ds_train.dataset)
 TrainAttack = config.create_attack_method(DEVICE)
 EvalAttack = config.create_evaluation_attack_method(DEVICE)
 
+optimizer = torch.optim.SGD(net.parameters(), lr=0.001, momentum=0.9, weight_decay=5e-4)
+
 if os.path.isfile(args.resume):
     load_checkpoint(args.resume, net)
 
+for _ in range(5):
+    total_counts = investigate_dataset(net, ds_train, DEVICE=DEVICE, eps=[0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3], descrip_str='Investigating')
 
-total_counts = investigate_dataset(net, ds_train, DEVICE=DEVICE, eps=[0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3], descrip_str='Investigating')
-print(total_counts.max(), total_counts.min(), total_counts.mean())
-# for i in range(8):
-#     print(total_counts.eq(i).sum())
+    # collect sensitive sample index.
+    total_counts = total_counts.flatten()
+    _, sort_idx = total_counts.sort()
+    sensitive_idx = sort_idx[:int(args.ratio*total_num)]
 
-# collect sensitive sample index.
-total_counts = total_counts.flatten()
-_, sort_idx = total_counts.sort()
-sensitive_idx = sort_idx[:int(args.ratio*total_num)]
+    print('Evaluating -- Before fxing:')
+    clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
+    print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
 
+    print('--- The Pinecone Fixing Process ---')
+    
+    # evaluate sensitive layers.
+    train_sensitive_data(net, ds_train, optimizer, sensitive_idx, DEVICE=DEVICE, AttackMethod=TrainAttack, descrip_str='Layer Investigating')
+    print('Evaluating -- After training sensitive data:')
+    clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
+    print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
 
-print('Evaluating -- Before fxing:')
-clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
-print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
-
-
-print('--- The Pinecone Fixing Process ---')
-optimizer = torch.optim.SGD(net.parameters(), lr=0.001, momentum=0.9, weight_decay=5e-4)
-# evaluate sensitive layers.
-train_sensitive_data(net, ds_train, optimizer, sensitive_idx, DEVICE=DEVICE, AttackMethod=TrainAttack, descrip_str='Layer Investigating')
-print('Evaluating -- After training sensitive data:')
-clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
-print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
-
-# adversarial training.
-train_one_epoch(net, ds_train, optimizer, nn.CrossEntropyLoss(), DEVICE,
-                    'adversarial training', TrainAttack, adv_coef = 1.0)
+    # adversarial training.
+    train_one_epoch(net, ds_train, optimizer, nn.CrossEntropyLoss(), DEVICE,
+                        'adversarial training', TrainAttack, adv_coef = 1.0)
 
 
-print('Evaluating -- After fxing:')
-clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
-print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
+    print('Evaluating -- After fxing:')
+    clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
+    print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
 
 
 
