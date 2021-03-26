@@ -42,7 +42,13 @@ def investigate_dataset(net, data_loader, DEVICE=torch.device('cuda:0'), eps=[0.
     return total_counts
 
 
+def eval_sensitive_layers(net, data_loader, indices, DEVICE=torch.device('cuda:0'), descrip_str='Layer Investigating'):
+    sampler = torch.utils.data.SubsetRandomSampler(indices=indices)
+    sample_dataloader = torch.utils.data.DataLoader(data_loader.dataset, batch_size=512, shuffle=False, num_workers=2, sampler=sampler)
 
+    for (inputs, targets) in sample_dataloader:
+        print(inputs.size())
+    
 
         
 

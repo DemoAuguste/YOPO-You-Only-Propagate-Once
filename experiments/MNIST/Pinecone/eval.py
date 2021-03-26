@@ -3,7 +3,7 @@ from dataset import create_test_dataset, create_train_dataset
 from network import create_network
 
 from training.train import eval_one_epoch
-from pinecone import investigate_dataset
+from pinecone import investigate_dataset, eval_sensitive_layers
 from utils.misc import load_checkpoint
 
 import argparse
@@ -16,6 +16,7 @@ parser.add_argument('--resume', '--resume', default='log/models/last.checkpoint'
                     type=str, metavar='PATH',
                     help='path to latest checkpoint (default:log/last.checkpoint)')
 parser.add_argument('-d', type=int, default=0, help='Which gpu to use')
+parser.add_argument('-r','--ratio', type=float, default=0.01)
 args = parser.parse_args()
 
 
@@ -27,8 +28,10 @@ net.to(DEVICE)
 
 ds_val = create_test_dataset(512)
 ds_train = create_train_dataset(512, shuffle=False)
+total_num = len(ds_train.dataset)
 
-AttackMethod = config.create_evaluation_attack_method(DEVICE)
+TrainAttack = config.create_attack_method(DEVICE)
+EvalAttack = config.create_evaluation_attack_method(DEVICE)
 
 if os.path.isfile(args.resume):
     load_checkpoint(args.resume, net)
@@ -36,8 +39,24 @@ if os.path.isfile(args.resume):
 
 total_counts = investigate_dataset(net, ds_train, DEVICE=DEVICE, eps=[0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3], descrip_str='Investigating')
 print(total_counts.max(), total_counts.min(), total_counts.mean())
-for i in range(8):
-    print(total_counts.eq(i).sum())
-print('Evaluating')
-clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, AttackMethod)
+# for i in range(8):
+#     print(total_counts.eq(i).sum())
+
+# collect sensitive sample index.
+total_counts = total_counts.flatten()
+_, sort_idx = total_counts.sort()
+sensitive_idx = sort_idx[:int(args.ratio*total_num)]
+
+
+print('Evaluating -- Before fxing:')
+clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
 print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
+
+
+print('--- The Pinecone Fixing Process ---')
+# evaluate sensitive layers.
+eval_sensitive_layers(net, ds_train, DEVICE=DEVICE)
+
+
+
+
