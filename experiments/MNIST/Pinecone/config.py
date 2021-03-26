@@ -39,7 +39,12 @@ class TrainingConfing(TrainingConfigBase):
 
     create_loss_function = None
 
-    create_attack_method = None
+    # create_attack_method = None
+
+    create_attack_method = \
+        IPGDAttackMethodMaker(eps = 0.3, sigma = 0.01, nb_iters = 40, norm = np.inf,
+                              mean = torch.tensor(np.array([0]).astype(np.float32)[np.newaxis, :, np.newaxis, np.newaxis]),
+                              std = torch.tensor(np.array([1]).astype(np.float32)[np.newaxis, :, np.newaxis, np.newaxis]))
 
     create_evaluation_attack_method = \
         IPGDAttackMethodMaker(eps = 0.3, sigma = 0.01, nb_iters = 40, norm = np.inf,
