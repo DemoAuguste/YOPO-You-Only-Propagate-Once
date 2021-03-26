@@ -17,6 +17,7 @@ parser.add_argument('--resume', '--resume', default='log/models/last.checkpoint'
                     type=str, metavar='PATH',
                     help='path to latest checkpoint (default:log/last.checkpoint)')
 parser.add_argument('-d', type=int, default=0, help='Which gpu to use')
+parser.add_argument('-r','--ratio', type=float, default=0.01, help='ratio of sensitive data')
 args = parser.parse_args()
 
 print(args)
