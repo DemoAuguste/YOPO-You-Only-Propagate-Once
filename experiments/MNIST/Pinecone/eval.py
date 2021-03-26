@@ -34,7 +34,7 @@ if os.path.isfile(args.resume):
     load_checkpoint(args.resume, net)
 
 
-total_counts = investigate_dataset(net, ds_train, DEVICE=DEVICE, eps=[0.0, 0.01, 0.02, 0.05, 0.1, 0.15, 0.2], descrip_str='Investigating')
+total_counts = investigate_dataset(net, ds_train, DEVICE=DEVICE, eps=[0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3], descrip_str='Investigating')
 print(total_counts.max(), total_counts.min(), total_counts.mean())
 for i in range(8):
     print(total_counts.eq(i).sum())
