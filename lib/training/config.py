@@ -85,7 +85,7 @@ class TrainingConfigBase(metaclass=ABCMeta):
 
 class SGDOptimizerMaker(object):
 
-    def __init__(self, lr = 0.1, momentum = 0.9, weight_decay = 1e-4):
+    def __init__(self, lr = 0.01, momentum = 0.9, weight_decay = 1e-4):
         self.lr = lr
         self.momentum = momentum
         self.weight_decay = weight_decay
