@@ -48,14 +48,14 @@ _, sort_idx = total_counts.sort()
 sensitive_idx = sort_idx[:int(args.ratio*total_num)]
 
 
-print('Evaluating -- Before fxing:')
-clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
-print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
+# print('Evaluating -- Before fxing:')
+# clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
+# print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
 
 
 print('--- The Pinecone Fixing Process ---')
 # evaluate sensitive layers.
-eval_sensitive_layers(net, ds_train, DEVICE=DEVICE)
+eval_sensitive_layers(net, ds_train, sensitive_idx, DEVICE=DEVICE)
 
 
 
