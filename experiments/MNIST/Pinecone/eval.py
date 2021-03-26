@@ -57,7 +57,7 @@ print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
 print('--- The Pinecone Fixing Process ---')
 optimizer = torch.optim.SGD(net.parameters(), lr=0.001, momentum=0.9, weight_decay=5e-4)
 # evaluate sensitive layers.
-train_sensitive_data(net, ds_train, optimizer, sensitive_idx, DEVICE=torch.device('cuda:0'), AttackMethod=None, descrip_str='Layer Investigating')
+train_sensitive_data(net, ds_train, optimizer, sensitive_idx, DEVICE=DEVICE, AttackMethod=None, descrip_str='Layer Investigating')
 # adversarial training.
 train_one_epoch(net, ds_train, optimizer, nn.CrossEntropyLoss(), DEVICE,
                     'adversarial training', TrainAttack, adv_coef = 1.0)
