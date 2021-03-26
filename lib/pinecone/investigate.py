@@ -30,6 +30,7 @@ def investigate_dataset(net, data_loader, DEVICE=torch.device('cuda:0'), eps=[0.
             perturbed_data = fgsm_attack(data, ep, data_grad)
             adv_output = net(perturbed_data)
             preds = adv_output.max(1, keepdim=True)[1]
+            print(label.size(), preds.size())
             counts += preds.eq(label)
         
         if total_counts is None:
