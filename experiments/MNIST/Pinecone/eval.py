@@ -20,6 +20,7 @@ parser.add_argument('-d', type=int, default=0, help='Which gpu to use')
 parser.add_argument('-r','--ratio', type=float, default=0.01, help='ratio of sensitive data')
 args = parser.parse_args()
 
+print(args)
 
 DEVICE = torch.device('cuda:{}'.format(args.d))
 torch.backends.cudnn.benchmark = True
