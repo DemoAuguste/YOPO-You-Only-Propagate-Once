@@ -36,6 +36,8 @@ if os.path.isfile(args.resume):
 
 total_counts = investigate_dataset(net, ds_train, DEVICE=DEVICE, eps=[0.0, 0.01, 0.02, 0.05, 0.1, 0.15, 0.2], descrip_str='Investigating')
 print(total_counts.max(), total_counts.min(), total_counts.mean())
+for i in range(8):
+    print(total_counts.eq(i).sum())
 print('Evaluating')
 clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, AttackMethod)
 print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
