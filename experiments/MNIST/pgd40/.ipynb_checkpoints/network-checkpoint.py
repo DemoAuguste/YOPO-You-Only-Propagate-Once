@@ -1,5 +1,4 @@
-# import config
-import torch
+import config
 from base_model.small_cnn import SmallCNN
 
 
