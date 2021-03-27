@@ -131,7 +131,7 @@ def generate_grad(grad, adv_grad, layer_mask=None, lr=0.01):
 
 def train_sensitive_data(net, data_loader, optimizer, indices, DEVICE=torch.device('cuda:0'), AttackMethod=None, descrip_str='Layer Investigating'):
     sampler = torch.utils.data.SubsetRandomSampler(indices=indices)
-    sample_dataloader = torch.utils.data.DataLoader(data_loader.dataset, batch_size=512, shuffle=False, num_workers=2, sampler=sampler)
+    sample_dataloader = torch.utils.data.DataLoader(data_loader.dataset, batch_size=128, shuffle=False, num_workers=2, sampler=sampler)
 
     net.train()
     criterion = nn.CrossEntropyLoss()
@@ -207,7 +207,7 @@ def pinecone_train_one_epoch(net, batch_generator, optimizer,
 
         grad = get_grad(net, pred, label, optimizer, criterion)
 
-        layer_mask = get_grad_diff_layer_mask(grad, adv_grad, ratio=0.5)
+        layer_mask = get_grad_diff_layer_mask(grad, adv_grad, ratio=0.1)
 
         ret_grad = generate_grad(grad, adv_grad, layer_mask=layer_mask)
         set_grad(net, ret_grad)
