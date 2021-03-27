@@ -68,6 +68,7 @@ parser.add_argument('-adv_coef', default=1.0, type = float,
                     help = 'Specify the weight for adversarial loss')
 parser.add_argument('--auto-continue', default=False, action = 'store_true',
                     help = 'Continue from the latest checkpoint')
+parser.add_argument('-r','--ratio', type=float, default=0.01, help='ratio of sensitive data')
 args = parser.parse_args()
 
 
