@@ -59,9 +59,9 @@ for _ in range(5):
 
     # evaluate sensitive layers.
     train_sensitive_data(net, ds_train, optimizer, sensitive_idx, DEVICE=DEVICE, AttackMethod=TrainAttack, descrip_str='Layer Investigating')
-    print('Evaluating -- After training sensitive data:')
-    clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
-    print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
+    # print('Evaluating -- After training sensitive data:')
+    # clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
+    # print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
 
     # adversarial training.
     train_one_epoch(net, ds_train, optimizer, nn.CrossEntropyLoss(), DEVICE,
