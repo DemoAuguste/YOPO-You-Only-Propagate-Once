@@ -137,6 +137,8 @@ def train_sensitive_data(net, data_loader, optimizer, indices, DEVICE=torch.devi
     criterion = nn.CrossEntropyLoss()
     pbar = tqdm(sample_dataloader)
 
+    layer_mask = None
+
     for (inputs, label) in pbar:
 
         inputs = inputs.to(DEVICE)
@@ -158,11 +160,12 @@ def train_sensitive_data(net, data_loader, optimizer, indices, DEVICE=torch.devi
         set_grad(net, ret_grad)
 
         optimizer.step()
+    return layer_mask
 
 
 def pinecone_train_one_epoch(net, batch_generator, optimizer,
                     criterion, DEVICE=torch.device('cuda:0'),
-                    descrip_str='Training', AttackMethod = None, adv_coef = 1.0):
+                    descrip_str='Training', AttackMethod = None, adv_coef = 1.0, layer_mask=None):
     '''
 
     :param attack_freq:  Frequencies of training with adversarial examples. -1 indicates natural training
@@ -207,7 +210,7 @@ def pinecone_train_one_epoch(net, batch_generator, optimizer,
 
         grad = get_grad(net, pred, label, optimizer, criterion)
 
-        layer_mask = get_grad_diff_layer_mask(grad, adv_grad, ratio=0.1)
+        # layer_mask = get_grad_diff_layer_mask(grad, adv_grad, ratio=0.1)
 
         ret_grad = generate_grad(grad, adv_grad, layer_mask=layer_mask)
         set_grad(net, ret_grad)

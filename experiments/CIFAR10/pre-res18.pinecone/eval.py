@@ -58,14 +58,14 @@ for _ in range(5):
     sensitive_idx = sort_idx[:int(args.ratio*total_num)]
 
     # evaluate sensitive layers.
-    train_sensitive_data(net, ds_train, optimizer, sensitive_idx, DEVICE=DEVICE, AttackMethod=TrainAttack, descrip_str='Layer Investigating')
+    layer_mask = train_sensitive_data(net, ds_train, optimizer, sensitive_idx, DEVICE=DEVICE, AttackMethod=TrainAttack, descrip_str='Layer Investigating')
     # print('Evaluating -- After training sensitive data:')
     # clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, EvalAttack)
     # print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
 
     # adversarial training.
     pinecone_train_one_epoch(net, ds_train, optimizer, nn.CrossEntropyLoss(), DEVICE,
-                        'adversarial training', TrainAttack, adv_coef = 1.0)
+                        'adversarial training', TrainAttack, adv_coef = 1.0, layer_mask=layer_mask)
 
 
     print('Evaluating -- After fxing:')
