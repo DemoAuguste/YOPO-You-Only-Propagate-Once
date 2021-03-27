@@ -32,7 +32,7 @@ ds_val = create_test_dataset(512)
 ds_train = create_train_dataset(128, shuffle=False)
 total_num = len(ds_train.dataset)
 
-TrainAttack = config.create_evaluation_attack_method(DEVICE)
+TrainAttack = config.create_attack_method(DEVICE)
 EvalAttack = config.create_evaluation_attack_method(DEVICE)
 
 optimizer = torch.optim.SGD(net.parameters(), lr=0.001, momentum=0.9, weight_decay=5e-4)
