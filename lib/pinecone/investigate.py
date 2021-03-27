@@ -131,7 +131,7 @@ def generate_grad(grad, adv_grad, layer_mask=None, lr=0.01):
 
 def train_sensitive_data(net, data_loader, optimizer, indices, DEVICE=torch.device('cuda:0'), AttackMethod=None, descrip_str='Layer Investigating'):
     sampler = torch.utils.data.SubsetRandomSampler(indices=indices)
-    sample_dataloader = torch.utils.data.DataLoader(data_loader.dataset, batch_size=128, shuffle=False, num_workers=2, sampler=sampler)
+    sample_dataloader = torch.utils.data.DataLoader(data_loader.dataset, batch_size=256, shuffle=False, num_workers=2, sampler=sampler)
 
     net.train()
     criterion = nn.CrossEntropyLoss()
