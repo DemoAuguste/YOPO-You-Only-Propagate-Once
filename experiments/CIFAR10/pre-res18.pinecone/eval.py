@@ -38,7 +38,7 @@ total_num = len(ds_train.dataset)
 TrainAttack = config.create_attack_method(DEVICE)
 EvalAttack = config.create_evaluation_attack_method(DEVICE)
 
-optimizer = torch.optim.SGD(net.parameters(), lr=0.001, momentum=0.9, weight_decay=5e-4)
+optimizer = torch.optim.SGD(net.parameters(), lr=0.0001, momentum=0.9, weight_decay=5e-4)
 
 if os.path.isfile(args.resume):
     load_checkpoint(args.resume, net)
