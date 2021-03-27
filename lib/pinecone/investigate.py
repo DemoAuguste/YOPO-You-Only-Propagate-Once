@@ -156,10 +156,10 @@ def train_sensitive_data(net, data_loader, optimizer, indices, DEVICE=torch.devi
         # Synthesize two gradients.
         layer_mask = get_grad_diff_layer_mask(grad, adv_grad, ratio=0.1)
 
-        ret_grad = generate_grad(grad, adv_grad, layer_mask=layer_mask)
-        set_grad(net, ret_grad)
+        # ret_grad = generate_grad(grad, adv_grad, layer_mask=layer_mask)
+        # set_grad(net, ret_grad)
 
-        optimizer.step()
+        # optimizer.step()
     return layer_mask
 
 
