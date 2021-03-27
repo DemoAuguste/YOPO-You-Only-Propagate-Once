@@ -64,6 +64,7 @@ def set_grad(model, grad):
             # print(t2[0])
             # print('something wrong.')
 
+
 def get_grad_diff_layer_mask(grad, adv_grad, ratio=0.1):
     layer_mask = OrderedDict()
     avg_list = []

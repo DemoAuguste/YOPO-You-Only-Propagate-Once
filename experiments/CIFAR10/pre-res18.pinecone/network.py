@@ -1,70 +1,141 @@
-# import config
-from collections import OrderedDict
+'''Pre-activation ResNet in PyTorch.
+Reference:
+[1] Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+    Identity Mappings in Deep Residual Networks. arXiv:1603.05027
+'''
+import torch
 import torch.nn as nn
+import torch.nn.functional as F
+
+import torchvision.models as models
 
 
-class SmallCNN(nn.Module):
-    def __init__(self, drop=0.5):
-        super(SmallCNN, self).__init__()
 
-        self.num_channels = 1
-        self.num_labels = 10
+class PreActBlock(nn.Module):
+    '''Pre-activation version of the BasicBlock.'''
+    expansion = 1
 
-        activ = nn.ReLU(True)
-        self.conv1 = nn.Conv2d(self.num_channels, 32, 3)
-        self.layer_one = nn.Sequential(OrderedDict([
-            ('conv1', self.conv1),
-            ('relu1', activ),]))
+    def __init__(self, in_planes, planes, stride=1):
+        super(PreActBlock, self).__init__()
+        self.bn1 = nn.BatchNorm2d(in_planes)
+        self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=3, stride=stride, padding=1, bias=False)
+        self.bn2 = nn.BatchNorm2d(planes)
+        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=1, padding=1, bias=False)
+
+        if stride != 1 or in_planes != self.expansion * planes:
+            self.shortcut = nn.Sequential(
+                nn.Conv2d(in_planes, self.expansion * planes, kernel_size=1, stride=stride, bias=False)
+            )
+
+    def forward(self, x):
+        out = F.relu(self.bn1(x))
+        shortcut = self.shortcut(out) if hasattr(self, 'shortcut') else x
+        out = self.conv1(out)
+        out = self.conv2(F.relu(self.bn2(out)))
+        out += shortcut
+        return out
 
 
-        self.feature_extractor = nn.Sequential(OrderedDict([
-            ('conv2', nn.Conv2d(32, 32, 3)),
-            ('relu2', activ),
-            ('maxpool1', nn.MaxPool2d(2, 2)),
-            ('conv3', nn.Conv2d(32, 64, 3)),
-            ('relu3', activ),
-            ('conv4', nn.Conv2d(64, 64, 3)),
-            ('relu4', activ),
-            ('maxpool2', nn.MaxPool2d(2, 2)),
-        ]))
+class PreActResNet(nn.Module):
 
-        self.classifier = nn.Sequential(OrderedDict([
-            ('fc1', nn.Linear(64 * 4 * 4, 200)),
-            ('relu1', activ),
-            ('drop', nn.Dropout(drop)),
-            ('fc2', nn.Linear(200, 200)),
-            ('relu2', activ),
-            ('fc3', nn.Linear(200, self.num_labels)),
-        ]))
+    def __init__(self, block, num_blocks, num_classes=10):
+        super(PreActResNet, self).__init__()
+        self.in_planes = 64
+
         self.other_layers = nn.ModuleList()
-        self.other_layers.append(self.feature_extractor)
-        self.other_layers.append(self.classifier)
 
-        for m in self.modules():
-            if isinstance(m, (nn.Conv2d)):
-                nn.init.kaiming_normal_(m.weight)
-                if m.bias is not None:
-                    nn.init.constant_(m.bias, 0)
-            elif isinstance(m, nn.BatchNorm2d):
-                nn.init.constant_(m.weight, 1)
-                nn.init.constant_(m.bias, 0)
-        nn.init.constant_(self.classifier.fc3.weight, 0)
-        nn.init.constant_(self.classifier.fc3.bias, 0)
+        self.conv1 = nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False)
 
-    def forward(self, input):
-        y = self.layer_one(input)
-        self.layer_one_out = y
+        self.layer_one = self.conv1
+
+
+        self.other_layer1 = self._make_layer(block, 64, num_blocks[0], stride=1)
+        self.other_layer2 = self._make_layer(block, 128, num_blocks[1], stride=2)
+        self.other_layer3 = self._make_layer(block, 256, num_blocks[2], stride=2)
+        self.other_layer4 = self._make_layer(block, 512, num_blocks[3], stride=2)
+
+        self.linear = GlobalpoolFC(512 * block.expansion, num_classes)
+        self.other_layers.append(self.linear)
+
+    def _make_layer(self, block, planes, num_blocks, stride):
+        strides = [stride] + [1] * (num_blocks - 1)
+        layers = []
+        for stride in strides:
+            layers.append(block(self.in_planes, planes, stride))
+            self.other_layers.append(layers[-1])
+
+            self.in_planes = planes * block.expansion
+        return nn.Sequential(*layers)
+
+    def forward(self, x):
+
+        x = self.layer_one(x)
+        self.layer_one_out = x
         self.layer_one_out.requires_grad_()
         self.layer_one_out.retain_grad()
-        features = self.feature_extractor(y)
-        logits = self.classifier(features.view(-1, 64 * 4 * 4))
-        return logits
+        x = self.layer_one_out
+
+        for layer in self.other_layers:
+            x = layer(x)
+
+        return x
+
+
+class GlobalpoolFC(nn.Module):
+
+    def __init__(self, num_in, num_class):
+        super(GlobalpoolFC, self).__init__()
+        self.pool = nn.AdaptiveAvgPool2d(output_size=1)
+        self.fc = nn.Linear(num_in, num_class)
+
+    def forward(self, x):
+        y = self.pool(x)
+        y = y.reshape(y.shape[0], -1)
+        y = self.fc(y)
+        return y
+
+
+def PreActResNet18():
+    return PreActResNet(PreActBlock, [2, 2, 2, 2])
+
+
+def PreActResNet34():
+    return PreActResNet(PreActBlock, [3, 4, 6, 3])
+
+
+class PreActBottleneck(nn.Module):
+    '''Pre-activation version of the original Bottleneck module.'''
+    expansion = 4
+
+    def __init__(self, in_planes, planes, stride=1):
+        super(PreActBottleneck, self).__init__()
+        self.bn1 = nn.BatchNorm2d(in_planes)
+        self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=1, bias=False)
+        self.bn2 = nn.BatchNorm2d(planes)
+        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=stride, padding=1, bias=False)
+        self.bn3 = nn.BatchNorm2d(planes)
+        self.conv3 = nn.Conv2d(planes, self.expansion*planes, kernel_size=1, bias=False)
+
+        if stride != 1 or in_planes != self.expansion*planes:
+            self.shortcut = nn.Sequential(
+                nn.Conv2d(in_planes, self.expansion*planes, kernel_size=1, stride=stride, bias=False)
+            )
+
+    def forward(self, x):
+        out = F.relu(self.bn1(x))
+        shortcut = self.shortcut(out) if hasattr(self, 'shortcut') else x
+        out = self.conv1(out)
+        out = self.conv2(F.relu(self.bn2(out)))
+        out = self.conv3(F.relu(self.bn3(out)))
+        out += shortcut
+        return out
 
 def create_network():
-    return SmallCNN()
+    return PreActResNet18()
+    # return models.resnet18(num_classes=10)
 
 
 def test():
-    net = create_network()
-    y = net((torch.randn(1, 1, 28, 28)))
+    net = PreActResNet18()
+    y = net((torch.randn(1, 3, 32, 32)))
     print(y.size())
