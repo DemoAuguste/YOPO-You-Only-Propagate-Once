@@ -6,6 +6,9 @@ from training.train import eval_one_epoch, train_one_epoch
 from pinecone import investigate_dataset, train_sensitive_data
 from utils.misc import load_checkpoint
 
+import torch.multiprocessing
+torch.multiprocessing.set_sharing_strategy('file_system')
+
 import torch.nn as nn
 import argparse
 import torch
