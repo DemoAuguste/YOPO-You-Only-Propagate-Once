@@ -3,7 +3,7 @@ from dataset import create_test_dataset, create_train_dataset
 from network import create_network
 
 from training.train import eval_one_epoch, train_one_epoch
-from pinecone import investigate_dataset, train_sensitive_data
+from pinecone import investigate_dataset, train_sensitive_data, pinecone_train_one_epoch
 from utils.misc import load_checkpoint
 
 import torch.multiprocessing
@@ -64,7 +64,7 @@ for _ in range(5):
     # print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
 
     # adversarial training.
-    train_one_epoch(net, ds_train, optimizer, nn.CrossEntropyLoss(), DEVICE,
+    pinecone_train_one_epoch(net, ds_train, optimizer, nn.CrossEntropyLoss(), DEVICE,
                         'adversarial training', TrainAttack, adv_coef = 1.0)
 
 

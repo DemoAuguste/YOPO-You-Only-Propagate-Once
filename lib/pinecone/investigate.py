@@ -5,6 +5,7 @@ import torch.nn.functional as F
 import torch.nn as nn
 from .attack import *
 from collections import OrderedDict
+from utils.misc import torch_accuracy, AvgMeter
 
 def investigate_dataset(net, data_loader, DEVICE=torch.device('cuda:0'), eps=[0.0, 0.05, 0.1], descrip_str='Investigating'):
     """
@@ -157,6 +158,72 @@ def train_sensitive_data(net, data_loader, optimizer, indices, DEVICE=torch.devi
         set_grad(net, ret_grad)
 
         optimizer.step()
+
+
+def pinecone_train_one_epoch(net, batch_generator, optimizer,
+                    criterion, DEVICE=torch.device('cuda:0'),
+                    descrip_str='Training', AttackMethod = None, adv_coef = 1.0):
+    '''
+
+    :param attack_freq:  Frequencies of training with adversarial examples. -1 indicates natural training
+    :param AttackMethod: the attack method, None represents natural training
+    :return:  None    #(clean_acc, adv_acc)
+    '''
+    net.train()
+    pbar = tqdm(batch_generator)
+    advacc = -1
+    advloss = -1
+    cleanacc = -1
+    cleanloss = -1
+    pbar.set_description(descrip_str)
+    for i, (data, label) in enumerate(pbar):
+        data = data.to(DEVICE)
+        label = label.to(DEVICE)
+
+        optimizer.zero_grad()
+
+        pbar_dic = OrderedDict()
+        TotalLoss = 0
+
+        if AttackMethod is not None:
+            adv_inp = AttackMethod.attack(net, data, label)
+            optimizer.zero_grad()
+            net.train()
+            pred = net(adv_inp)
+
+            adv_grad = get_grad(net, pred, label, optimizer, criterion)
+
+            loss = criterion(pred, label)
+
+            acc = torch_accuracy(pred, label, (1,))
+            advacc = acc[0].item()
+            advloss = loss.item()
+            #TotalLoss = TotalLoss + loss * adv_coef
+            # (loss * adv_coef).backward()
+
+
+        pred = net(data)
+        loss = criterion(pred, label)
+
+        grad = get_grad(net, pred, label, optimizer, criterion)
+
+        layer_mask = get_grad_diff_layer_mask(grad, adv_grad, ratio=0.5)
+
+        ret_grad = generate_grad(grad, adv_grad, layer_mask=layer_mask)
+        set_grad(net, ret_grad)
+
+        # loss.backward()
+
+        optimizer.step()
+        acc = torch_accuracy(pred, label, (1,))
+        cleanacc = acc[0].item()
+        cleanloss = loss.item()
+        #pbar_dic['grad'] = '{}'.format(grad_mean)
+        pbar_dic['Acc'] = '{:.2f}'.format(cleanacc)
+        pbar_dic['loss'] = '{:.2f}'.format(cleanloss)
+        pbar_dic['AdvAcc'] = '{:.2f}'.format(advacc)
+        pbar_dic['Advloss'] = '{:.2f}'.format(advloss)
+        pbar.set_postfix(pbar_dic)
         
 
 
