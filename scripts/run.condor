@@ -1,0 +1,23 @@
+## Condor Demo for HTGC: Condor Submission File for Single Job
+##
+## Copyright (c) 2016 Antoni B. Chan
+## Dept. Computer Science, City University of Hong Kong
+####################
+
+### DEFAULT SETTINGS #########################
+#rank           = 
+priority        = 0
+notification    = Never
+notify_user     = 
+getenv          = True
+#environment    = HOME=$ENV(HOME)
+
+### JOB ###########################
+executable      = /usr/bin/python
+arguments       = ../experiments/cifar10/wide34.pgd10/train.py
+input           =
+output          = mnist_cnn.out
+error           = $(output).err
+log             = mnist_cnn.log
+
+queue
