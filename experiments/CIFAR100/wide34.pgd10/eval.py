@@ -1,4 +1,3 @@
-from experiments.MNIST.Pinecone.dataset import create_train_dataset
 from config import config
 from dataset import create_test_dataset
 from network import create_network
@@ -25,7 +24,6 @@ torch.backends.cudnn.benchmark = True
 net = create_network()
 net.to(DEVICE)
 
-ds_train = create_train_dataset(args.batch_size)
 ds_val = create_test_dataset(512)
 
 AttackMethod = config.create_evaluation_attack_method(DEVICE)
@@ -37,7 +35,3 @@ if os.path.isfile(args.resume):
 print('Evaluating')
 clean_acc, adv_acc = eval_one_epoch(net, ds_val, DEVICE, AttackMethod)
 print('clean acc -- {}     adv acc -- {}'.format(clean_acc, adv_acc))
-
-
-
-
