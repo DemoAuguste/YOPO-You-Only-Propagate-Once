@@ -4,6 +4,7 @@ import os
 import argparse
 import numpy as np
 import torch
+from loss import CrossEntropyWithWeightPenlty
 
 def add_path(path):
     if path not in sys.path:
@@ -22,18 +23,25 @@ class TrainingConfing(TrainingConfigBase):
 
     lib_dir = lib_dir
 
-    num_epochs = 105
-    val_interval = 10
+    num_epochs = 36
+    val_interval = 2
+    weight_decay = 5e-4
 
-    create_optimizer = SGDOptimizerMaker(lr =1e-1, momentum = 0.9, weight_decay = 2e-4)
-    create_lr_scheduler = PieceWiseConstantLrSchedulerMaker(milestones = [75, 90, 100], gamma = 0.1)
+    inner_iters = 3
+    K = 5
+    sigma = 2 / 255.0
+    eps = 8 / 255.0
+
+    create_optimizer = SGDOptimizerMaker(lr =1e-1 * 4 / K, momentum = 0.9, weight_decay = 5e-4)
+    create_lr_scheduler = PieceWiseConstantLrSchedulerMaker(milestones = [30, 34, 36], gamma = 0.1)
 
     create_loss_function = torch.nn.CrossEntropyLoss
 
-    create_attack_method = \
-        IPGDAttackMethodMaker(eps = 8/255.0, sigma = 2/255.0, nb_iters = 10, norm = np.inf,
-                              mean = torch.tensor(np.array([0]).astype(np.float32)[np.newaxis, :, np.newaxis, np.newaxis]),
-                              std = torch.tensor(np.array([1]).astype(np.float32)[np.newaxis, :, np.newaxis, np.newaxis]))
+    #create_attack_method = \
+    #    IPGDAttackMethodMaker(eps = 8/255.0, sigma = 2/255.0, nb_iters = 10, norm = np.inf,
+    #                          mean = torch.tensor(np.array([0]).astype(np.float32)[np.newaxis, :, np.newaxis, np.newaxis]),
+    #                          std = torch.tensor(np.array([1]).astype(np.float32)[np.newaxis, :, np.newaxis, np.newaxis]))
+    create_attack_method = None
 
     create_evaluation_attack_method = \
         IPGDAttackMethodMaker(eps = 8/255.0, sigma = 2/255.0, nb_iters = 20, norm = np.inf,

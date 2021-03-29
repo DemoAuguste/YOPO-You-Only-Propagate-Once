@@ -118,8 +118,8 @@ class WideResNet(nn.Module):
         return y
 
 
-def create_network():
-    net = WideResNet()
+def create_network(depth=34, num_classses=10):
+    net = WideResNet(depth=depth, num_classses=num_classses)
 
     return net
 
