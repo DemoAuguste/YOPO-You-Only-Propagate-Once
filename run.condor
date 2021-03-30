@@ -1,0 +1,24 @@
+## Condor Demo for HTGC: Condor Submission File for Single Job
+##
+## Copyright (c) 2016 Antoni B. Chan
+## Dept. Computer Science, City University of Hong Kong
+####################
+
+### DEFAULT SETTINGS #########################
+#rank           = 
+priority        = 0
+notification    = Never
+notify_user     = 
+getenv          = True
+#environment    = HOME=$ENV(HOME)
+
+### JOB ###########################
+executable      = run.sh
+requirements = (CUDADeviceName == "GeForce RTX 2080 Ti")
+arguments       = 
+input           =
+output          = run.out
+error           = $(output).err
+log             = run.log
+
+queue
