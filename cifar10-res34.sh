@@ -1,4 +1,4 @@
-
+#!/bin/sh
 
 SHELL_FOLDER=$(cd "$(dirname "$0")";pwd)
 
