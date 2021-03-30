@@ -4,6 +4,7 @@ SHELL_FOLDER=$(cd "$(dirname "$0")";pwd)
 
 # CIFAR-10
 # resnet18
+echo $SHELL_FOLDER/experiments/CIFAR10/pre-res18.yopo-5-3/
 cd $SHELL_FOLDER/experiments/CIFAR10/pre-res18.yopo-5-3/
 
 for i in {1..5}
@@ -15,6 +16,7 @@ do
 done
 
 # resnet34
+echo $SHELL_FOLDER/experiments/CIFAR10/wide34.yopo-5-3/
 cd $SHELL_FOLDER/experiments/CIFAR10/wide34.yopo-5-3/
 for i in {1..5}
 do
@@ -27,6 +29,7 @@ done
 
 # CIFAR-100
 # resnet18
+echo $SHELL_FOLDER/experiments/CIFAR100/pre-res18.yopo-5-3/
 cd $SHELL_FOLDER/experiments/CIFAR100/pre-res18.yopo-5-3/
 
 for i in {1..5}
@@ -38,6 +41,7 @@ do
 done
 
 # resnet34
+echo $SHELL_FOLDER/experiments/CIFAR100/wide34.yopo-5-3/
 cd $SHELL_FOLDER/experiments/CIFAR100/wide34.yopo-5-3/
 for i in {1..5}
 do
