@@ -10,7 +10,7 @@ def add_path(path):
         print('Adding {}'.format(path))
         sys.path.append(path)
 
-abs_current_path = os.path.realpath('./')
+abs_current_path = os.path.abspath(__file__)
 root_path = os.path.join('/', *abs_current_path.split(os.path.sep)[:-3])
 lib_dir = os.path.join(root_path, 'lib')
 add_path(lib_dir)
