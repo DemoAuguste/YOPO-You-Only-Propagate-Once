@@ -13,12 +13,41 @@ getenv          = True
 #environment    = HOME=$ENV(HOME)
 
 ### JOB ###########################
-executable      = run.sh
-requirements = (CUDADeviceName == "GeForce RTX 2080 Ti")
+executable      = cifar10-res18.sh
 arguments       = 
 input           =
-output          = run.out
+output          = cifar10-res18.out
 error           = $(output).err
-log             = run.log
+log             = cifar10-res18.log
+
+queue
+
+### JOB ###########################
+executable      = cifar10-res34.sh
+arguments       = 
+input           =
+output          = cifar10-res34.out
+error           = $(output).err
+log             = cifar10-res34.log
+
+queue
+
+### JOB ###########################
+executable      = cifar100-res18.sh
+arguments       = 
+input           =
+output          = cifar100-res18.out
+error           = $(output).err
+log             = cifar100-res18.log
+
+queue
+
+### JOB ###########################
+executable      = cifar100-res34.sh
+arguments       = 
+input           =
+output          = cifar10-res34.out
+error           = $(output).err
+log             = cifar100-res34.log
 
 queue
