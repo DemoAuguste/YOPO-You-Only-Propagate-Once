@@ -10,6 +10,6 @@ do
     # python3 train.py
     # save the result
     mkdir -p $SHELL_FOLDER/results/cifar10/res18/$i/
-    echo $SHELL_FOLDER/results/cifar10/res18/$i/last.checkpoint
+    echo $SHELL_FOLDER/results/cifar10/res18/"$i"/last.checkpoint
     # cp ./log/models/last.checkpoint $SHELL_FOLDER/results/cifar10/res18/$i/last.checkpoint
 done
