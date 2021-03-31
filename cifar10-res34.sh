@@ -18,7 +18,7 @@ SHELL_FOLDER=$(cd "$(dirname "$0")";pwd)
 # resnet34
 echo $SHELL_FOLDER/experiments/CIFAR10/wide34.yopo-5-3/
 cd $SHELL_FOLDER/experiments/CIFAR10/wide34.yopo-5-3/
-for i in {1..5}
+for i in $(seq 1 5)
 do
     python3 train.py
     # save the result
