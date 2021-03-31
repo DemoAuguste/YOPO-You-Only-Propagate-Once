@@ -30,3 +30,31 @@
 009 (14654.000.000) 03/30 19:03:17 Job was aborted by the user.
 	via condor_rm (by user hzhang339)
 ...
+000 (17795.000.000) 03/31 15:23:32 Job submitted from host: <10.37.0.9:9618?addrs=10.37.0.9-9618+[--1]-9618&noUDP&sock=986_e478_3>
+...
+001 (17795.000.000) 03/31 16:05:00 Job executing on host: <10.37.0.63:9618?addrs=10.37.0.63-9618+[--1]-9618&noUDP&sock=1796_7c2e_3>
+...
+006 (17795.000.000) 03/31 16:05:09 Image size of job updated: 1441200
+	1246  -  MemoryUsage of job (MB)
+	1275512  -  ResidentSetSize of job (KB)
+...
+006 (17795.000.000) 03/31 16:15:10 Image size of job updated: 1664648
+	1456  -  MemoryUsage of job (MB)
+	1490604  -  ResidentSetSize of job (KB)
+...
+006 (17795.000.000) 03/31 16:35:12 Image size of job updated: 1665140
+	1456  -  MemoryUsage of job (MB)
+	1490604  -  ResidentSetSize of job (KB)
+...
+006 (17795.000.000) 03/31 17:40:18 Image size of job updated: 1665312
+	1456  -  MemoryUsage of job (MB)
+	1490604  -  ResidentSetSize of job (KB)
+...
+006 (17795.000.000) 03/31 17:50:19 Image size of job updated: 1665404
+	1456  -  MemoryUsage of job (MB)
+	1490748  -  ResidentSetSize of job (KB)
+...
+006 (17795.000.000) 03/31 18:35:24 Image size of job updated: 1665516
+	1456  -  MemoryUsage of job (MB)
+	1490792  -  ResidentSetSize of job (KB)
+...

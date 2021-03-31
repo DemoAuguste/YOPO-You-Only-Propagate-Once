@@ -1,0 +1,255 @@
+/home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/
+Adding /home/grads/hzhang339/YOPO-server2/lib
+Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ../data/cifar-10-python.tar.gz
+Extracting ../data/cifar-10-python.tar.gz to ../data
+Files already downloaded and verified
+{'Acc': 37.5, 'YofoAcc': 26.25}
+{'Acc': 45.0, 'YofoAcc': 26.25}
+{'Acc': 42.5, 'YofoAcc': 26.25}
+{'Acc': 51.25, 'YofoAcc': 27.5}
+{'Acc': 45.0, 'YofoAcc': 28.75}
+{'Acc': 58.75, 'YofoAcc': 32.5}
+{'Acc': 63.75, 'YofoAcc': 33.75}
+{'Acc': 60.0, 'YofoAcc': 28.75}
+{'Acc': 71.25, 'YofoAcc': 37.5}
+{'Acc': 66.25, 'YofoAcc': 33.75}
+{'Acc': 60.0, 'YofoAcc': 37.5}
+{'Acc': 76.25, 'YofoAcc': 36.25}
+{'Acc': 68.75, 'YofoAcc': 41.25}
+{'Acc': 75.0, 'YofoAcc': 36.25}
+{'Acc': 70.0, 'YofoAcc': 27.5}
+{'Acc': 76.25, 'YofoAcc': 46.25}
+{'Acc': 68.75, 'YofoAcc': 33.75}
+{'Acc': 70.0, 'YofoAcc': 35.0}
+{'Acc': 70.0, 'YofoAcc': 30.0}
+{'Acc': 80.0, 'YofoAcc': 35.0}
+{'Acc': 71.25, 'YofoAcc': 42.5}
+{'Acc': 73.75, 'YofoAcc': 42.5}
+{'Acc': 75.0, 'YofoAcc': 47.5}
+{'Acc': 76.25, 'YofoAcc': 43.75}
+{'Acc': 75.0, 'YofoAcc': 32.5}
+{'Acc': 71.25, 'YofoAcc': 35.0}
+{'Acc': 87.5, 'YofoAcc': 48.75}
+{'Acc': 71.25, 'YofoAcc': 33.75}
+{'Acc': 82.5, 'YofoAcc': 51.25}
+{'Acc': 77.5, 'YofoAcc': 41.25}
+{'Acc': 82.5, 'YofoAcc': 41.25}
+{'Acc': 86.25, 'YofoAcc': 58.75}
+{'Acc': 85.0, 'YofoAcc': 53.75}
+{'Acc': 83.75, 'YofoAcc': 53.75}
+{'Acc': 88.75, 'YofoAcc': 45.0}
+{'Acc': 82.5, 'YofoAcc': 40.0}
+{'Acc': 83.75, 'YofoAcc': 38.75}
+Adding /home/grads/hzhang339/YOPO-server2/lib
+Files already downloaded and verified
+Files already downloaded and verified
+{'Acc': 32.5, 'YofoAcc': 22.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-1.checkpoint
+{'Acc': 55.0, 'YofoAcc': 30.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-2.checkpoint
+{'Acc': 50.0, 'YofoAcc': 28.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-3.checkpoint
+{'Acc': 57.5, 'YofoAcc': 32.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-4.checkpoint
+{'Acc': 55.0, 'YofoAcc': 28.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-5.checkpoint
+{'Acc': 61.25, 'YofoAcc': 30.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-6.checkpoint
+{'Acc': 57.5, 'YofoAcc': 35.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-7.checkpoint
+{'Acc': 66.25, 'YofoAcc': 37.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-8.checkpoint
+{'Acc': 70.0, 'YofoAcc': 31.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-9.checkpoint
+{'Acc': 53.75, 'YofoAcc': 30.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-10.checkpoint
+{'Acc': 61.25, 'YofoAcc': 31.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-11.checkpoint
+{'Acc': 65.0, 'YofoAcc': 32.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-12.checkpoint
+{'Acc': 70.0, 'YofoAcc': 33.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-13.checkpoint
+{'Acc': 60.0, 'YofoAcc': 30.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-14.checkpoint
+{'Acc': 71.25, 'YofoAcc': 36.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-15.checkpoint
+{'Acc': 67.5, 'YofoAcc': 37.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-16.checkpoint
+{'Acc': 76.25, 'YofoAcc': 35.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-17.checkpoint
+{'Acc': 78.75, 'YofoAcc': 48.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-18.checkpoint
+{'Acc': 76.25, 'YofoAcc': 35.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-19.checkpoint
+{'Acc': 80.0, 'YofoAcc': 48.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-20.checkpoint
+{'Acc': 67.5, 'YofoAcc': 36.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-21.checkpoint
+{'Acc': 71.25, 'YofoAcc': 40.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-22.checkpoint
+{'Acc': 80.0, 'YofoAcc': 33.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-23.checkpoint
+{'Acc': 78.75, 'YofoAcc': 42.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-24.checkpoint
+{'Acc': 77.5, 'YofoAcc': 43.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-25.checkpoint
+{'Acc': 80.0, 'YofoAcc': 36.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-26.checkpoint
+{'Acc': 80.0, 'YofoAcc': 33.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-27.checkpoint
+{'Acc': 80.0, 'YofoAcc': 48.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-28.checkpoint
+{'Acc': 73.75, 'YofoAcc': 41.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-29.checkpoint
+{'Acc': 78.75, 'YofoAcc': 46.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-30.checkpoint
+{'Acc': 80.0, 'YofoAcc': 53.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-31.checkpoint
+{'Acc': 88.75, 'YofoAcc': 57.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-32.checkpoint
+{'Acc': 83.75, 'YofoAcc': 48.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-33.checkpoint
+{'Acc': 86.25, 'YofoAcc': 48.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-34.checkpoint
+{'Acc': 81.25, 'YofoAcc': 42.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-35.checkpoint
+{'Acc': 76.25, 'YofoAcc': 43.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-36.checkpoint
+{'Acc': 86.25, 'YofoAcc': 47.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-37.checkpoint
+Adding /home/grads/hzhang339/YOPO-server2/lib
+Files already downloaded and verified
+Files already downloaded and verified
+{'Acc': 33.75, 'YofoAcc': 16.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-1.checkpoint
+{'Acc': 51.25, 'YofoAcc': 31.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-2.checkpoint
+{'Acc': 53.75, 'YofoAcc': 31.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-3.checkpoint
+{'Acc': 61.25, 'YofoAcc': 28.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-4.checkpoint
+{'Acc': 60.0, 'YofoAcc': 27.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-5.checkpoint
+{'Acc': 50.0, 'YofoAcc': 26.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-6.checkpoint
+{'Acc': 55.0, 'YofoAcc': 30.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-7.checkpoint
+{'Acc': 70.0, 'YofoAcc': 31.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-8.checkpoint
+{'Acc': 66.25, 'YofoAcc': 32.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-9.checkpoint
+{'Acc': 65.0, 'YofoAcc': 28.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-10.checkpoint
+{'Acc': 68.75, 'YofoAcc': 41.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-11.checkpoint
+{'Acc': 67.5, 'YofoAcc': 30.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-12.checkpoint
+{'Acc': 76.25, 'YofoAcc': 37.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-13.checkpoint
+{'Acc': 78.75, 'YofoAcc': 43.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-14.checkpoint
+{'Acc': 77.5, 'YofoAcc': 37.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-15.checkpoint
+{'Acc': 62.5, 'YofoAcc': 36.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-16.checkpoint
+{'Acc': 73.75, 'YofoAcc': 42.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-17.checkpoint
+{'Acc': 72.5, 'YofoAcc': 48.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-18.checkpoint
+{'Acc': 73.75, 'YofoAcc': 48.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-19.checkpoint
+{'Acc': 73.75, 'YofoAcc': 36.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-20.checkpoint
+{'Acc': 75.0, 'YofoAcc': 47.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-21.checkpoint
+{'Acc': 72.5, 'YofoAcc': 45.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-22.checkpoint
+{'Acc': 71.25, 'YofoAcc': 37.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-23.checkpoint
+{'Acc': 75.0, 'YofoAcc': 43.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-24.checkpoint
+{'Acc': 82.5, 'YofoAcc': 47.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-25.checkpoint
+{'Acc': 87.5, 'YofoAcc': 45.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-26.checkpoint
+{'Acc': 85.0, 'YofoAcc': 50.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-27.checkpoint
+{'Acc': 77.5, 'YofoAcc': 48.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-28.checkpoint
+{'Acc': 86.25, 'YofoAcc': 40.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-29.checkpoint
+{'Acc': 73.75, 'YofoAcc': 45.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-30.checkpoint
+{'Acc': 83.75, 'YofoAcc': 50.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-31.checkpoint
+{'Acc': 87.5, 'YofoAcc': 45.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-32.checkpoint
+{'Acc': 88.75, 'YofoAcc': 48.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-33.checkpoint
+{'Acc': 82.5, 'YofoAcc': 47.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-34.checkpoint
+{'Acc': 86.25, 'YofoAcc': 52.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-35.checkpoint
+{'Acc': 86.25, 'YofoAcc': 42.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-36.checkpoint
+{'Acc': 83.75, 'YofoAcc': 48.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-37.checkpoint
+Adding /home/grads/hzhang339/YOPO-server2/lib
+Files already downloaded and verified
+Files already downloaded and verified
+{'Acc': 30.0, 'YofoAcc': 22.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-1.checkpoint
+{'Acc': 33.75, 'YofoAcc': 22.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-2.checkpoint
+{'Acc': 60.0, 'YofoAcc': 32.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-3.checkpoint
+{'Acc': 50.0, 'YofoAcc': 27.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-4.checkpoint
+{'Acc': 50.0, 'YofoAcc': 20.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-5.checkpoint
+{'Acc': 67.5, 'YofoAcc': 40.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-6.checkpoint
+{'Acc': 68.75, 'YofoAcc': 38.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-7.checkpoint
+{'Acc': 58.75, 'YofoAcc': 25.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-8.checkpoint
+{'Acc': 73.75, 'YofoAcc': 38.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-9.checkpoint
+{'Acc': 71.25, 'YofoAcc': 35.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-10.checkpoint
+{'Acc': 65.0, 'YofoAcc': 37.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-11.checkpoint
+{'Acc': 75.0, 'YofoAcc': 36.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-12.checkpoint
+{'Acc': 66.25, 'YofoAcc': 35.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-13.checkpoint
+{'Acc': 62.5, 'YofoAcc': 35.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-14.checkpoint
+{'Acc': 80.0, 'YofoAcc': 46.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-15.checkpoint
+{'Acc': 70.0, 'YofoAcc': 38.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-16.checkpoint
+{'Acc': 77.5, 'YofoAcc': 38.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-17.checkpoint
+{'Acc': 70.0, 'YofoAcc': 40.0}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-18.checkpoint
+{'Acc': 72.5, 'YofoAcc': 46.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-19.checkpoint
+{'Acc': 71.25, 'YofoAcc': 42.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-20.checkpoint
+{'Acc': 70.0, 'YofoAcc': 42.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-21.checkpoint
+{'Acc': 77.5, 'YofoAcc': 47.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-22.checkpoint
+{'Acc': 73.75, 'YofoAcc': 36.25}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-23.checkpoint
+{'Acc': 85.0, 'YofoAcc': 48.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-24.checkpoint
+{'Acc': 85.0, 'YofoAcc': 42.5}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-25.checkpoint
+{'Acc': 73.75, 'YofoAcc': 33.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-26.checkpoint
+{'Acc': 76.25, 'YofoAcc': 48.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-27.checkpoint
+{'Acc': 77.5, 'YofoAcc': 48.75}
+Overwriting /home/grads/hzhang339/YOPO-server2/experiments/CIFAR10/pre-res18.yopo-5-3/log/models/epoch-28.checkpoint

@@ -1,0 +1,31 @@
+/home/grads/hzhang339/YOPO-server2/experiments/CIFAR100/pre-res18.yopo-5-3/
+Adding /home/grads/hzhang339/YOPO-server2/lib
+Downloading https://www.cs.toronto.edu/~kriz/cifar-100-python.tar.gz to ../data/cifar-100-python.tar.gz
+Extracting ../data/cifar-100-python.tar.gz to ../data
+Files already downloaded and verified
+{'Acc': 10.0, 'YofoAcc': 5.0}
+{'Acc': 12.5, 'YofoAcc': 7.5}
+{'Acc': 22.5, 'YofoAcc': 3.75}
+{'Acc': 22.5, 'YofoAcc': 10.0}
+{'Acc': 25.0, 'YofoAcc': 11.25}
+{'Acc': 26.25, 'YofoAcc': 17.5}
+{'Acc': 25.0, 'YofoAcc': 13.75}
+{'Acc': 35.0, 'YofoAcc': 15.0}
+{'Acc': 41.25, 'YofoAcc': 21.25}
+{'Acc': 37.5, 'YofoAcc': 22.5}
+{'Acc': 27.5, 'YofoAcc': 10.0}
+{'Acc': 41.25, 'YofoAcc': 25.0}
+{'Acc': 38.75, 'YofoAcc': 13.75}
+{'Acc': 36.25, 'YofoAcc': 15.0}
+{'Acc': 45.0, 'YofoAcc': 25.0}
+{'Acc': 51.25, 'YofoAcc': 26.25}
+{'Acc': 40.0, 'YofoAcc': 12.5}
+{'Acc': 35.0, 'YofoAcc': 22.5}
+{'Acc': 42.5, 'YofoAcc': 12.5}
+{'Acc': 52.5, 'YofoAcc': 20.0}
+{'Acc': 47.5, 'YofoAcc': 21.25}
+{'Acc': 46.25, 'YofoAcc': 18.75}
+{'Acc': 45.0, 'YofoAcc': 20.0}
+{'Acc': 51.25, 'YofoAcc': 22.5}
+{'Acc': 48.75, 'YofoAcc': 18.75}
+{'Acc': 55.0, 'YofoAcc': 26.25}
