@@ -23,14 +23,14 @@ getenv          = True
 #queue
 
 ### JOB ###########################
-executable      = cifar10-res34.natural.sh
-arguments       = 
-input           =
-output          = cifar10-res34.natural.out
-error           = $(output).err
-log             = cifar10-res34.natural.log
+#executable      = cifar10-res34.natural.sh
+#arguments       = 
+#input           =
+#output          = cifar10-res34.natural.out
+#error           = $(output).err
+#log             = cifar10-res34.natural.log
 
-queue
+#queue
 
 ### JOB ###########################
 executable      = cifar100-res18.natural.sh
@@ -43,11 +43,11 @@ log             = cifar100-res18.natural.log
 queue
 
 ### JOB ###########################
-executable      = cifar100-res34.natural.sh
-arguments       = 
-input           =
-output          = cifar10-res34.natural.out
-error           = $(output).err
-log             = cifar100-res34.natural.log
+#executable      = cifar100-res34.natural.sh
+#arguments       = 
+#input           =
+#output          = cifar10-res34.natural.out
+#error           = $(output).err
+#log             = cifar100-res34.natural.log
 
-queue
+#queue
