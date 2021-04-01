@@ -76,4 +76,4 @@ while True:
     lr_scheduler.step()
     lyaer_one_optimizer_lr_scheduler.step()
     save_checkpoint(now_epoch, net, optimizer, lr_scheduler,
-                    file_name = os.path.join(config.model_dir, 'epoch-{}.checkpoint'.format(now_epoch)))
+                    file_name = os.path.join(config.model_dir, 'epoch.checkpoint'))
