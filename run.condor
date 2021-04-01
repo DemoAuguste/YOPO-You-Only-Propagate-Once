@@ -13,14 +13,14 @@ getenv          = True
 #environment    = HOME=$ENV(HOME)
 
 ### JOB ###########################
-executable      = cifar10-res18.sh
-arguments       = 
-input           =
-output          = cifar10-res18.out
-error           = $(output).err
-log             = cifar10-res18.log
+#executable      = cifar10-res18.sh
+#arguments       = 
+#input           =
+#output          = cifar10-res18.out
+#error           = $(output).err
+#log             = cifar10-res18.log
 
-queue
+#queue
 
 ### JOB ###########################
 executable      = cifar10-res34.sh
@@ -33,14 +33,14 @@ log             = cifar10-res34.log
 queue
 
 ### JOB ###########################
-executable      = cifar100-res18.sh
-arguments       = 
-input           =
-output          = cifar100-res18.out
-error           = $(output).err
-log             = cifar100-res18.log
+#executable      = cifar100-res18.sh
+#arguments       = 
+#input           =
+#output          = cifar100-res18.out
+#error           = $(output).err
+#log             = cifar100-res18.log
 
-queue
+#queue
 
 ### JOB ###########################
 executable      = cifar100-res34.sh
