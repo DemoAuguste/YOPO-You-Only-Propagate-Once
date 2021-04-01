@@ -20,7 +20,7 @@ getenv          = True
 #error           = $(output).err
 #log             = cifar10-res18.natural.log
 
-queue
+#queue
 
 ### JOB ###########################
 executable      = cifar10-res34.natural.sh
