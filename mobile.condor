@@ -1,0 +1,57 @@
+## Condor Demo for HTGC: Condor Submission File for Single Job
+##
+## Copyright (c) 2016 Antoni B. Chan
+## Dept. Computer Science, City University of Hong Kong
+####################
+
+### DEFAULT SETTINGS #########################
+#rank           = 
+priority        = 0
+notification    = Never
+notify_user     = 
+getenv          = True
+#environment    = HOME=$ENV(HOME)
+
+### JOB ###########################
+executable      = cifar10-mobilev3.sh
+arguments       = 
+input           =
+output          = cifar10-mobilev3.out
+error           = $(output).err
+log             = cifar10-mobilev3.log
+
+queue
+
+
+### JOB ###########################
+executable      = cifar10-mobilev3.natural.sh
+arguments       = 
+input           =
+output          = cifar10-mobilev3.natural.out
+error           = $(output).err
+log             = cifar10-mobilev3.natural.log
+
+queue
+
+
+### JOB ###########################
+executable      = cifar100-mobilev3.sh
+arguments       = 
+input           =
+output          = cifar100-mobilev3.out
+error           = $(output).err
+log             = cifar100-mobilev3.log
+
+queue
+
+
+### JOB ###########################
+executable      = cifar100-mobilev3.natural.sh
+arguments       = 
+input           =
+output          = cifar100-mobilev3.natural.out
+error           = $(output).err
+log             = cifar100-mobilev3.natural.log
+
+queue
+
