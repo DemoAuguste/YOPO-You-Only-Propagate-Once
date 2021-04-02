@@ -20,7 +20,7 @@ echo $SHELL_FOLDER/experiments/CIFAR10/wide34.yopo-5-3/
 cd $SHELL_FOLDER/experiments/CIFAR10/wide34.yopo-5-3/
 for i in $(seq 1 5)
 do
-    python3 train.py
+    python3 train.py -d 3
     # save the result
     mkdir -p $SHELL_FOLDER/results/cifar10/res34/$i/
     cp ./log/models/last.checkpoint $SHELL_FOLDER/results/cifar10/res34/$i/last.checkpoint
